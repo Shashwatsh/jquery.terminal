@@ -1,3 +1,63 @@
+1.0.8     fix paste in IE and Edge
+1.0.7     fix exec when pause called in onInit
+          fix reverse search
+          fix 3 argument in completion error
+          fix login from hash for async JSON-RPC
+          fix focus(false)/disable in exec from hash
+          fix regression of pasting in MacOS
+          scroll to bottom in insert method
+          remove default extra property from interpreter (all properties are saved in interperter)
+          and make main options extra pass to intepterer not using extra property
+          fix completion when text have spaces (escaped or inside quotes)
+          fix dead keys on MacOSX (testing shortcuts now require keydown and keypress events)
+1.0.6     fix AltGr on non US keyboard layouts
+1.0.5     fix CTRL+D to delete forward one character
+          don't use user agent sniffing to get scroll element if terminal attached to body
+          fix & on French layout
+1.0.3/4   fix keypress with key polyfill
+1.0.2     fix CTRL+V in Firefox and IE
+          fix issue in jQuery >= 3.0
+          fix space, backspace, resize and arrows in IE
+          fix middle mouse paste on GNU/Linux
+1.0.1     fix signature
+1.0.0     copy to system clipboard when copy to kill area
+          simplify changing of terminal colors using css variables
+          always export history and import when importHistory option is true
+          add bar and underline cursor animations and a way to enable it with single css variable
+          recalcualate cols and rows on terminal resize (not only window)
+          request/response and onPush/onPop callbacks
+          all callbacks have terminal as `this` (terminal in parameter stay the same)
+          add option softPause to control pause visible option - it don't hide the prompt when set to true
+          add wordAutocomplete option (default true)
+          add complete and before_cursor api methods and use it for autocomplete
+          formatting for command line (you can't type formatting but you can use $.terminal.formatters to
+          format command you're writing)
+          new option formatters for echo (error method by default disable formatters)
+          interpeter and terminal accept extra option that can be use in onPop or onPush
+          add keymap option to cmd, terminal and interpreter where you can add shortcuts
+          clicking on character, in cmd plugin, move cursor to that character
+          BUGS:
+          fix width calculation with scrollbar visible
+          fix exception in Firefox throw by setSelectionRange in caret plugin
+          make echo sync when echo string or function (flush didn't work on codepen)
+          fix onCommandChange callback on backspace
+          Don't echo extended commands on resize
+          use JSON.parse to process strings when parsing command line
+          fix rpc in array when there are no system.describe
+          call exeptionHandler on every exception (even iternal)
+          fix echo resolved content when interpreter return a promise
+          fix for valid /[/]/g regex
+          fix pushing JSON-RPC intepreter
+          fix selection in IE
+          clear selection when click anywhere in the terminal
+          fix removing global events on terminal destroy
+          don't execute javascript file when fetching line that trigger exception in browser that have
+          fileName in exception (like Firfox)
+          BREAKING CHANGES:
+          completion function now have two arguments string and callback and terminal is in this
+          removed setInterpreter, parseArguments, splitArguments, parseCommand and splitCommand
+          if you execute keydown event manualy to trigger terminal/cmd shortcuts you need to pass key property with key name
+          see spec/terminalSpec.js file
 0.11.23   add scrollBottomOffset option
 0.11.22   scroll to bottom of the terminal when option scrollOnEcho is set to false but the terminal is
           at the bottom, add new api methods is_bottom and scroll_to_bottom.
@@ -81,7 +141,7 @@
           Don't print empty string after removing extended commands strings
           fix history_state method
 0.9.2     Don't change command line history if ctrl key is pressed
-          fix middle mouse copy on linux
+          fix middle mouse copy on GNU/Linux
           fix resize issue
 0.9.1     freeze and frozen API methods that disable/enable terminal that can't be enabled
           by click

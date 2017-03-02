@@ -14,17 +14,18 @@
         "bower.in",
         "Makefile",
         "manifest",
-		".gitignore",
-		".npmignore",
-		"package.in",
-		"package.json",
-		"bin",
-		"version"
+        ".gitignore",
+        ".npmignore",
+        "package.in",
+        "package.json",
+        "bin",
+        "version"
     ],
     "dependencies": {
         "jquery": "~2"
     },
     "devDependencies": {
-        "jasmine": "latest"
+        "jasmine": "~2.5.2",
+        "keyboardevent-key-polyfill": "^1.0.2"
     }
 }
